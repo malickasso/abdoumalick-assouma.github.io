@@ -612,6 +612,10 @@ img {
     font-size: 1.25rem;
   }
 
+  .social-links {
+    justify-content: center;
+  }
+
   .projects-grid {
     grid-template-columns: 1fr;
   }
