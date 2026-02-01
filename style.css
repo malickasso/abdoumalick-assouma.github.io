@@ -826,3 +826,55 @@ img {
     font-size: 2rem;
   }
 }
+
+/* ===== SCROLL TO TOP BUTTON ===== */
+.scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+.scroll-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+.scroll-top svg {
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .scroll-top {
+    width: 2.5rem;
+    height: 2.5rem;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .scroll-top svg {
+    width: 20px;
+    height: 20px;
+  }
+}

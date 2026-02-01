@@ -101,7 +101,7 @@ if (contactForm) {
     if (firstname && lastname && subject && message) {
       // Simuler l'envoi du message
       alert(`Merci ${firstname} ${lastname} ! Votre message a bien été envoyé.`);
-      
+
       // Réinitialiser le formulaire
       contactForm.reset();
     } else {
@@ -113,11 +113,11 @@ if (contactForm) {
 /* ===== SCROLL REVEAL ANIMATION ===== */
 function revealOnScroll() {
   const elements = document.querySelectorAll('.project-card, .about-container, .skills-box, .contact-form');
-  
+
   elements.forEach((element) => {
     const elementTop = element.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
-    
+
     if (elementTop < windowHeight - 100) {
       element.style.opacity = '1';
       element.style.transform = 'translateY(0)';
@@ -128,13 +128,13 @@ function revealOnScroll() {
 // Initialiser les éléments pour l'animation
 document.addEventListener('DOMContentLoaded', () => {
   const elements = document.querySelectorAll('.project-card, .about-container, .skills-box, .contact-form');
-  
+
   elements.forEach((element) => {
     element.style.opacity = '0';
     element.style.transform = 'translateY(20px)';
     element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   });
-  
+
   // Lancer l'animation au chargement
   setTimeout(revealOnScroll, 100);
 });
@@ -147,11 +147,11 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     e.preventDefault();
     const targetId = this.getAttribute('href');
     const targetElement = document.querySelector(targetId);
-    
+
     if (targetElement) {
       const headerHeight = document.getElementById('header').offsetHeight;
       const targetPosition = targetElement.offsetTop - headerHeight;
-      
+
       window.scrollTo({
         top: targetPosition,
         behavior: 'smooth'
@@ -159,3 +159,25 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }
   });
 });
+
+/* ===== SCROLL TO TOP BUTTON ===== */
+const scrollTopBtn = document.getElementById('scroll-top');
+
+function toggleScrollTopBtn() {
+  if (window.scrollY > 300) {
+    scrollTopBtn.classList.add('show');
+  } else {
+    scrollTopBtn.classList.remove('show');
+  }
+}
+
+if (scrollTopBtn) {
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
+
+window.addEventListener('scroll', toggleScrollTopBtn);
